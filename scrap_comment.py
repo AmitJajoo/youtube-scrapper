@@ -17,26 +17,26 @@ class ScrapComment:
         chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
         chrome_options.add_argument('--disable-blink-features=AutomationControlled')
         driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
-        driver.set_window_size(1320, 550)
+        driver.set_window_size(1536, 816)
         driver.get(url)
         time.sleep(10)
-        prev_h = driver.execute_script("return document.body.scrollHeight")
+        prev_h =0 #driver.execute_script("return document.body.scrollHeight")
         while True:
-            driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+            # driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
             time.sleep(20)
 
             # Calculate new scroll height and compare with last scroll height
-            height = driver.execute_script("return document.body.scrollHeight")
-            # height = driver.execute_script("""
-            #         function getActualHeight() {
-            #             return Math.max(
-            #                 Math.max(document.body.scrollHeight, document.documentElement.scrollHeight),
-            #                 Math.max(document.body.offsetHeight, document.documentElement.offsetHeight),
-            #                 Math.max(document.body.clientHeight, document.documentElement.clientHeight)
-            #             );
-            #         }
-            #         return getActualHeight();
-            #     """)
+            # height = driver.execute_script("return document.body.scrollHeight")
+            height = driver.execute_script("""
+                    function getActualHeight() {
+                        return Math.max(
+                            Math.max(document.body.scrollHeight, document.documentElement.scrollHeight),
+                            Math.max(document.body.offsetHeight, document.documentElement.offsetHeight),
+                            Math.max(document.body.clientHeight, document.documentElement.clientHeight)
+                        );
+                    }
+                    return getActualHeight();
+                """)
             driver.execute_script(f"window.scrollTo({prev_h},{prev_h + 200})")
             # fix the time sleep value according to your network connection
             time.sleep(10)
