@@ -7,11 +7,14 @@ from bs4 import BeautifulSoup
 class ScrapComment:
 
     def ScrapDetails(url):
-        option = webdriver.ChromeOptions()
-        print("44444444")
-        option.add_argument("--headless")
-        print("555555555555")
-        driver = webdriver.Chrome(ChromeDriverManager().install(), options=option)
+        chrome_options = webdriver.ChromeOptions()
+        chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+        chrome_options.add_argument("--headless")
+        chrome_options.add_argument("--disable-dev-shm-usage")
+        chrome_options.add_argument("--no-sandbox")
+        driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+
+        driver.get(url)
         driver.get(url)
         time.sleep(10)
         prev_h = 0
