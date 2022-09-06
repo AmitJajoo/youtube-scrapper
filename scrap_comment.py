@@ -2,7 +2,7 @@ from selenium import webdriver
 import time
 from webdriver_manager.chrome import ChromeDriverManager
 from bs4 import BeautifulSoup
-
+import os
 
 class ScrapComment:
 
