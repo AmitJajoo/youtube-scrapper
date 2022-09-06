@@ -18,8 +18,8 @@ class VideoUrl:
         #extra options
         chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
         chrome_options.add_argument('--disable-blink-features=AutomationControlled')
-        driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
-        driver.set_window_size(1320, 550)
+        driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
+        driver.set_window_size(1536, 816)
         driver.get(url)
         time.sleep(10)
         prev_h = 0
@@ -36,7 +36,7 @@ class VideoUrl:
                 """)
             driver.execute_script(f"window.scrollTo({prev_h},{prev_h + 200})")
             # fix the time sleep value according to your network connection
-            time.sleep(1)
+            time.sleep(20)
             prev_h += 200
             if prev_h >= height:
                 break
