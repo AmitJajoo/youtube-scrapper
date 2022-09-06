@@ -39,7 +39,7 @@ class ScrapComment:
             #     """)
             driver.execute_script(f"window.scrollTo({prev_h},{prev_h + 200})")
             # fix the time sleep value according to your network connection
-            time.sleep(1)
+            time.sleep(10)
             prev_h += 200
             if prev_h >= height:
                 break
