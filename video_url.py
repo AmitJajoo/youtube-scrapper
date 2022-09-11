@@ -21,7 +21,7 @@ class VideoUrl:
         driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
         driver.set_window_size(1536, 816)
         driver.get(url)
-        time.sleep(10)
+        time.sleep(5)
         prev_h = 0
         while True:
             height = driver.execute_script("""
@@ -36,7 +36,7 @@ class VideoUrl:
                 """)
             driver.execute_script(f"window.scrollTo({prev_h},{prev_h + 200})")
             # fix the time sleep value according to your network connection
-            time.sleep(20)
+            time.sleep(2)
             prev_h += 200
             if prev_h >= height:
                 break
