@@ -3,7 +3,7 @@ class Mongo:
 
     def insertDataMongoDb(li):
         client = pymongo.MongoClient(
-            "mongodb+srv://amitkumarjajoo:lavanyajajoo@cluster0.jt959jq.mongodb.net/?retryWrites=true&w=majority")
+            "mongodb+srv://amitkumarjajoo:<password>@cluster0.jt959jq.mongodb.net/?retryWrites=true&w=majority")
         db = client.test
         database = client['youtube']
         collection = database['details']
