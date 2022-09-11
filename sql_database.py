@@ -6,7 +6,7 @@ class SnowflakeDatabase:
         # Gets the version
         ctx = snowflake.connector.connect(
             user='AMIT',
-            password='<password>',
+            password='Lavanyajajoo123',
             account='HU39708.ap-southeast-1'
         )
         cs = ctx.cursor()

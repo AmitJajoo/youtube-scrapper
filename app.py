@@ -51,3 +51,6 @@ def index():
         except Exception as e:
             print('The Exception message is: ',e)
             return 'something is wrong'
+
+if __name__ == "__main__":
+    app.run()
